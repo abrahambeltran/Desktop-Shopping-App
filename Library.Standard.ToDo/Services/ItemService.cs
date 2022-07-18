@@ -81,11 +81,11 @@ namespace Library.TaskManagement.Services
             itemList.Remove(todoToDelete);
         }
 
-        public void Load(string fileName = null)
+        public void Load(string fileName)
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                fileName = $"{persistPath}\\SaveData.json";
+                fileName = $"{persistPath}\\InventoryData.json";
             }
             else
             {

@@ -127,7 +127,7 @@ namespace ToDoApplication.UWP.ViewModels
 
         public void Load()
         {
-            _itemService.Load();
+            _itemService.Load(null);
             NotifyPropertyChanged("Items");
         }
 

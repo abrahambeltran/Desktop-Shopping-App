@@ -21,6 +21,7 @@ namespace ToDoApplication.UWP.ViewModels
     {
 
         public string Query { get; set; }
+        public string fileName { get; set; }
         public ItemViewModel SelectedItem { get; set; }
         private ItemService _itemService;
         public bool IsSortByName { get; set; }
@@ -131,8 +132,8 @@ namespace ToDoApplication.UWP.ViewModels
         }
 
         public void Load()
-        {
-            _itemService.Load();
+        {  
+            _itemService.Load(fileName);
             NotifyPropertyChanged("Items");
         }
 
