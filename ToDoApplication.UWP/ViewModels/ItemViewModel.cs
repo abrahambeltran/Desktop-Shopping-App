@@ -12,6 +12,23 @@ namespace ToDoApplication.UWP.ViewModels
 {
     public class ItemViewModel:INotifyPropertyChanged
     {
+        public string fileName
+        {
+            get
+            {
+                return BoundItem?.fileName ?? string.Empty;
+            }
+
+            set
+            {
+                if (BoundItem == null)
+                {
+                    return;
+                }
+
+                BoundItem.fileName = value;
+            }
+        }
         public string Name { 
             get
             {
@@ -54,16 +71,32 @@ namespace ToDoApplication.UWP.ViewModels
         {
             get
             {
-                return BoundItem?.Quantity ?? 0;
+                return BoundToDo?.Quantity ?? 0;
             }
             set
             {
-                if (BoundItem == null)
+                if (BoundToDo == null)
                 {
                     return;
                 }
 
-                BoundItem.Quantity = value;
+                BoundToDo.Quantity = value;
+            }
+        }
+        public int Weight
+        {
+            get
+            {
+                return BoundAppointment?.Weight ?? 0;
+            }
+            set
+            {
+                if (BoundAppointment == null)
+                {
+                    return;
+                }
+
+                BoundAppointment.Weight = value;
             }
         }
 

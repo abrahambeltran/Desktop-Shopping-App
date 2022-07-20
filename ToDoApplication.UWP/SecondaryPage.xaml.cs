@@ -73,12 +73,12 @@ namespace ToDoApplication.UWP
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as CartViewModel).Save();
+            (DataContext as CartViewModel).Save("");
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as CartViewModel).Load();
+            (DataContext as CartViewModel).Load("");
         }
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {

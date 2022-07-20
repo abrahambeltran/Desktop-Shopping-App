@@ -45,7 +45,7 @@ namespace ToDoApplication.UWP.Dialogs
             //step 2: use a conversion constructor from view model -> todo
 
             //step 3: interact with the service using models;
-            ItemService.Current.AddOrUpdate(DataContext as Item);
+            ItemService.Current.AddOrUpdate(DataContext as ToDo);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

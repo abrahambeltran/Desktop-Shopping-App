@@ -8,7 +8,7 @@ namespace Library.TaskManagement.Models
 {
     public class Appointment: Item
     {
-        
+        public int Weight { get; set; }
         public Appointment()
         {
 

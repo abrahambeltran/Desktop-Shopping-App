@@ -64,16 +64,23 @@
                             <TextBlock Grid.Column="0" Grid.Row="0" Text="ID: "></TextBlock>
                             <TextBlock Grid.Column="0" Grid.Row="1" Text="Name: "></TextBlock>
                             <TextBlock Grid.Column="0" Grid.Row="2" Text="Description: "></TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="3" Text="Quantity/Weight: "></TextBlock>
+                            <Grid Grid.Column="0" Grid.Row="3" Visibility="{Binding Path=IsAppointment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock  Text="Weight: "></TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="3" Visibility="{Binding Path=IsToDo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock  Text="Quantity: "></TextBlock>
+                            </Grid>
                             <TextBlock Grid.Column="0" Grid.Row="4" Text="Price: "></TextBlock>
                             <TextBlock Grid.Column="0" Grid.Row="5" Text="Bogo: "></TextBlock>
                             <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Path=Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                            <!--<Grid Grid.Column="1" Grid.Row="3" Visibility="{Binding Path=IsToDo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            <Grid Grid.Column="1" Grid.Row="3" Visibility="{Binding Path=IsAppointment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <TextBlock  Text="{Binding Path=Weight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                            </Grid>-->
+                            </Grid>
+                            <Grid Grid.Column="1" Grid.Row="3" Visibility="{Binding Path=IsToDo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock  Text="{Binding Path=Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                            </Grid>
                             <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding Path=Bogo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                         </Grid>

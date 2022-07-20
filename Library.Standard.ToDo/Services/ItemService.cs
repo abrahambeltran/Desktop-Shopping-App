@@ -103,7 +103,7 @@ namespace Library.TaskManagement.Services
         {
             if(string.IsNullOrEmpty(fileName))
             {
-                fileName = $"{persistPath}\\SaveData.json";
+                fileName = $"{persistPath}\\InventoryData.json";
             } else
             {
                 fileName = $"{persistPath}\\{fileName}.json";

@@ -108,8 +108,6 @@ namespace ToDoApplication.UWP.ViewModels
                     diag = new AppointmentDialog(SelectedItem.BoundAppointment);
                 }
 
-
-                
                 await diag.ShowAsync();
                 NotifyPropertyChanged("Items");
             }

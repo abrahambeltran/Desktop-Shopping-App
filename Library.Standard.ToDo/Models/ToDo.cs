@@ -8,10 +8,11 @@ namespace Library.TaskManagement.Models
 {
     public class ToDo: Item
     {
-        
+        public int Quantity { get; set; }
+
         public ToDo()
         {
-
+            
         }
 
         public override string ToString()

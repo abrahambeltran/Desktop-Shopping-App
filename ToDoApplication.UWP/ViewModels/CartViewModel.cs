@@ -121,9 +121,9 @@ namespace ToDoApplication.UWP.ViewModels
 
         }
 
-        public void Save()
+        public void Save(String s)
         {
-            string filename = null;
+            string filename = s;
             
            
             ContentDialog diag = new ItemDialog(SelectedItem);
@@ -131,8 +131,9 @@ namespace ToDoApplication.UWP.ViewModels
             _itemService.Save(filename);
         }
 
-        public void Load()
-        {  
+        public void Load(String g)
+        {
+            String fileName = g;
             _itemService.Load(fileName);
             NotifyPropertyChanged("Items");
         }
