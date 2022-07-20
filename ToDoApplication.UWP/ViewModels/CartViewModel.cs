@@ -50,7 +50,7 @@ namespace ToDoApplication.UWP.ViewModels
             }
         }
 
-        public ItemService inventoryList {
+        public ObservableCollection<ItemViewModel> inventoryList {
             get
             {
                 return inventoryInstance.GetList;

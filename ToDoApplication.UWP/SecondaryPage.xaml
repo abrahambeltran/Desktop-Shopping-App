@@ -48,41 +48,10 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="94*"/>
-                    <ColumnDefinition Width="281*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <ListBox Grid.Column="1" ItemsSource="{Binding Path=Cart,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" HorizontalAlignment="Stretch">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Column="0" Grid.Row="0" Text="ID: "></TextBlock>
-                                <TextBlock Grid.Column="0" Grid.Row="1" Text="Name: "></TextBlock>
-                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Description: "></TextBlock>
-                                <TextBlock Grid.Column="0" Grid.Row="3" Text="Quantity/Weight: "></TextBlock>
-                                <TextBlock Grid.Column="0" Grid.Row="4" Text="Price: "></TextBlock>
-                                <TextBlock Grid.Column="0" Grid.Row="5" Text="Bogo: "></TextBlock>
-                                <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                                <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                                <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                                <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding Path=Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                                <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                                <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding Path=Bogo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                
                 <ListBox Grid.Column="0" ItemsSource="{Binding Path=inventoryList,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" HorizontalAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -117,7 +86,7 @@
                 </ListBox>
             </Grid>
             <Grid Grid.Column="1">
-                <ListBox ItemsSource="{Binding Path=Item,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" Grid.ColumnSpan="2">
+                <ListBox ItemsSource="{Binding Path=Cart,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" Grid.ColumnSpan="2">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>

@@ -54,9 +54,9 @@ namespace ToDoApplication.UWP.ViewModels
             }
         }
 
-        public ItemService GetList
+        public ObservableCollection<ItemViewModel> GetList
         {
-            get { return ItemService.Current; }
+            get { return ObservableCollection<ItemViewModel> Items; }
         }
 
         public MainViewModel()
