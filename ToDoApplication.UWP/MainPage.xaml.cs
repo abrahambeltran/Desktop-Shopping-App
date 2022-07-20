@@ -84,12 +84,5 @@ namespace ToDoApplication.UWP
         {
             this.Frame.Navigate(typeof(SecondaryPage));
         }
-
-        private bool QuantityorWeight(object sender, RoutedEventArgs e)
-        {
-            bool x = false;
-            //if () { }
-            return x;
-        }
     }
 }

@@ -18,8 +18,8 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="4*"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -27,9 +27,19 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Save_Click"></Button>
-                <Button Grid.Column="1" Content="Load" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Load_Click"></Button>
+                <Button Grid.Column="0" Content="Save" HorizontalAlignment="Stretch" Click="Save_Click"></Button>
+                <Button Grid.Column="1" Content="Load" HorizontalAlignment="Stretch" Click="Load_Click"></Button>
+                <Button Grid.Column="2" Content="Sort By" HorizontalAlignment="Stretch">
+                    <Button.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text="Unit Price" Click="UnitSort"/>
+                            <MenuFlyoutItem Text="Total Price" Click="TotalSort"/>
+                            <MenuFlyoutItem Text="Name" Click="NameSort"/>
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
             </Grid>
             <TextBox Grid.Column="1" Text="{Binding Path=Query, Mode=TwoWay}"></TextBox>
             <Button Grid.Column="2" Content="Search" HorizontalAlignment="Stretch" Click="Search_Click"></Button>
@@ -60,6 +70,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Column="0" Grid.Row="0" Text="ID: "></TextBlock>
                             <TextBlock Grid.Column="0" Grid.Row="1" Text="Name: "></TextBlock>
@@ -72,6 +83,7 @@
                             </Grid>
                             <TextBlock Grid.Column="0" Grid.Row="4" Text="Price: "></TextBlock>
                             <TextBlock Grid.Column="0" Grid.Row="5" Text="Bogo: "></TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="6" Text="Total Price: "></TextBlock>
                             <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
@@ -83,6 +95,7 @@
                             </Grid>
                             <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding Path=Bogo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding Path=TotalPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

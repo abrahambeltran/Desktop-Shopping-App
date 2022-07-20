@@ -132,6 +132,21 @@ namespace ToDoApplication.UWP.ViewModels
                 BoundItem.Bogo = value;
             }
         }
+        public int TotalPrice
+        {
+            get {
+                if (IsToDo)
+                {
+                    return BoundToDo.TotalPrice = BoundToDo.Quantity * BoundToDo.Price;
+                }
+               
+                return BoundAppointment.TotalPrice = BoundAppointment.Weight * BoundAppointment.Price;
+            }
+            set
+            {
+               
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

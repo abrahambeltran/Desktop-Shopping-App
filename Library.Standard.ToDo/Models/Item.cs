@@ -10,6 +10,7 @@
         //public int Weight { get; set; }
         public int Price { get; set; }
         public bool Bogo { get; set; }
+        public int TotalPrice { get; set; }
 
         public override string ToString()
         {
