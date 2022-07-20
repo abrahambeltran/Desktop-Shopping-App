@@ -24,6 +24,7 @@ namespace ToDoApplication.UWP.ViewModels
         public ItemViewModel SelectedItem { get; set; }
         private ItemService _itemService;
         public bool IsSortByName { get; set; }
+        
         public ObservableCollection<ItemViewModel> Items
         {
             get
@@ -52,7 +53,12 @@ namespace ToDoApplication.UWP.ViewModels
                 return new ObservableCollection<ItemViewModel>(returnList);
             }
         }
-        
+
+        public ItemService GetList
+        {
+            get { return ItemService.Current; }
+        }
+
         public MainViewModel()
         {
             _itemService = ItemService.Current;
@@ -132,6 +138,25 @@ namespace ToDoApplication.UWP.ViewModels
         public void Refresh()
         {
             NotifyPropertyChanged("Items");
+        }
+        public void Sort(String s)
+        {
+            if(s == null)
+            {
+                return;
+            }
+            if(s == "totalSort")
+            {
+
+            }
+            if(s == "unitSort")
+            {
+
+            }
+            if(s == "nameSort")
+            {
+
+            }
         }
     }
     

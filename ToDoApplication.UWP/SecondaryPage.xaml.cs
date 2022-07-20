@@ -13,12 +13,10 @@ namespace ToDoApplication.UWP
     /// </summary>
     public sealed partial class SecondaryPage : Page
     {
-
-
         public SecondaryPage()
         {
             this.InitializeComponent();
-            DataContext = new CombineViewModel();
+            DataContext = new CartViewModel();
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
@@ -31,7 +29,7 @@ namespace ToDoApplication.UWP
             var vm = DataContext as CartViewModel;
             if (vm != null)
             {
-                await vm.Add(ItemType.Task);
+                await vm.Add(ItemType.Item);
             }
         }
 

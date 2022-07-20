@@ -12,19 +12,15 @@ using Windows.UI.Xaml.Controls;
 
 namespace ToDoApplication.UWP.ViewModels
 {
-    public class CombineViewModel
-    {
-        public MainViewModel A { get; set; }
-        public CartViewModel B { get; set; }
-    }
     public class CartViewModel : INotifyPropertyChanged
     {
-
         public string Query { get; set; }
         public string fileName { get; set; }
         public ItemViewModel SelectedItem { get; set; }
         private ItemService _itemService;
         public bool IsSortByName { get; set; }
+        MainViewModel inventoryInstance = new MainViewModel();
+
         public ObservableCollection<ItemViewModel> Cart
         {
             get
@@ -50,8 +46,14 @@ namespace ToDoApplication.UWP.ViewModels
                 {
                     return new ObservableCollection<ItemViewModel>(returnList.OrderBy(i => i.Name));
                 }
-
                 return new ObservableCollection<ItemViewModel>(returnList);
+            }
+        }
+
+        public ItemService inventoryList {
+            get
+            {
+                return inventoryInstance.GetList;
             }
         }
 
