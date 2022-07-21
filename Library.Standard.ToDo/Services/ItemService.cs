@@ -45,6 +45,18 @@ namespace Library.TaskManagement.Services
                 return Items.Select(t => t.Id).Max() + 1;
             }
         }
+        public int NextCartId
+        {
+            get
+            {
+                if (!Cart.Any())
+                {
+                    return 1;
+                }
+
+                return Cart.Select(t => t.Id).Max() + 1;
+            }
+        }
 
         private static ItemService current;
 
@@ -80,6 +92,14 @@ namespace Library.TaskManagement.Services
             }
 
         }
+        public void AddOrUpdateCart(Item todo)
+        {
+            if (todo.Id <= 0)
+            {
+                todo.Id = NextId;
+                Cart.Add(todo);
+            }
+        }
 
         public void Delete(int id)
         {
@@ -89,6 +109,15 @@ namespace Library.TaskManagement.Services
                 return;
             }
             itemList.Remove(todoToDelete);
+        }
+        public void DeleteFromCart(int id)
+        {
+            var todoToDelete = cartList.FirstOrDefault(t => t.Id == id);
+            if (todoToDelete == null)
+            {
+                return;
+            }
+            cartList.Remove(todoToDelete);
         }
 
         public void Load(string fileName)

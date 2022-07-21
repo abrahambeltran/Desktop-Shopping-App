@@ -26,24 +26,6 @@ namespace ToDoApplication.UWP
             (DataContext as MainViewModel).Refresh();
         }
 
-        private async void Add_Task_Click(object sender, RoutedEventArgs e)
-        {
-            var vm = DataContext as MainViewModel;
-            if (vm != null)
-            {
-                await vm.Add(ItemType.Task);
-            }
-        }
-
-        private async void Add_App_Click(object sender, RoutedEventArgs e)
-        {
-            var vm = DataContext as MainViewModel;
-            if (vm != null)
-            {
-                await vm.Add(ItemType.Appointment);
-            }
-        }
-
         private async void Add_Item_Click(object sender, RoutedEventArgs e)
         {
             var vm = DataContext as MainViewModel;

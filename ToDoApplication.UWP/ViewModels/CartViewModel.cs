@@ -81,7 +81,7 @@ namespace ToDoApplication.UWP.ViewModels
             }
             else if (iType == ItemType.Item)
             {
-                diag = new ItemDialog();
+                diag = new AddToCartDialog();
             }
             else
             {
@@ -97,7 +97,7 @@ namespace ToDoApplication.UWP.ViewModels
             var id = SelectedItem?.Id ?? -1;
             if (id >= 1)
             {
-                _itemService.Delete(SelectedItem.Id);
+                _itemService.DeleteFromCart(SelectedItem.Id);
             }
             NotifyPropertyChanged("Cart");
         }
@@ -120,7 +120,6 @@ namespace ToDoApplication.UWP.ViewModels
                 await diag.ShowAsync();
                 NotifyPropertyChanged("Cart");
             }
-
         }
 
         public void Save(String s)
