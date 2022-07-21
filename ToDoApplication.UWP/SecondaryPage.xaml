@@ -19,18 +19,29 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="7*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Save_Click"></Button>
-                <Button Grid.Column="1" Content="Load" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Load_Click"></Button>
+                <TextBox Grid.Column="0" Text="{Binding Path=fileName, Mode=TwoWay}"></TextBox>
+                <Button Grid.Column="1" Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Save_Click"></Button>
+                <Button Grid.Column="2" Content="Load" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Load_Click"></Button>
+                <Button Grid.Column="3" Content="Sort By" HorizontalAlignment="Stretch">
+                    <Button.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text="Total Price" Click="TotalSort"/>
+                            <MenuFlyoutItem Text="Name" Click="NameSort"/>
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
             </Grid>
             <TextBox Grid.Column="1" Text="{Binding Path=Query, Mode=TwoWay}"></TextBox>
             <Button Grid.Column="2" Content="Search" HorizontalAlignment="Stretch" Click="Search_Click"></Button>
@@ -138,14 +149,14 @@
                                 <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                 <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                 <Grid Grid.Column="1" Grid.Row="3" Visibility="{Binding Path=IsAppointment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                    <TextBlock  Text="{Binding Path=Weight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                    <TextBlock  Text="{Binding Path=CartWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="3" Visibility="{Binding Path=IsToDo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                    <TextBlock  Text="{Binding Path=Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                    <TextBlock  Text="{Binding Path=CartQuantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                 </Grid>
                                 <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                 <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding Path=Bogo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                                <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding Path=TotalPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding Path=CartPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -165,7 +176,7 @@
                 <Button Content="Add Product to Cart" Grid.Column="0" HorizontalAlignment="Stretch" Click="Add_Item_Click"></Button>
             </Grid>
             <Button Content="Edit Product in Cart" Grid.Column="1" HorizontalAlignment="Stretch"></Button>
-            <Button Content="Remove Product from Cart" Grid.Column="2" HorizontalAlignment="Stretch"></Button>
+            <Button Content="Remove Product from Cart" Grid.Column="2" HorizontalAlignment="Stretch" Click="Remove_Click"></Button>
         </Grid>
     </Grid>
 </Page>

@@ -99,19 +99,48 @@ namespace ToDoApplication.UWP.ViewModels
                 BoundAppointment.Weight = value;
             }
         }
+        public int CartWeight
+        {
+            get { return BoundAppointment?.CartWeight ?? 0; }
+        }
+        public int CartQuantity
+        {
+            get { return BoundToDo?.CartQuantity ?? 0; }
+        }
+        public int CartPrice
+        {
+            get
+            {
+                if (IsToDo)
+                {
+                    if (Bogo)
+                    {
+                        return BoundToDo.CartPrice = BoundToDo.CartQuantity/2 * BoundToDo.Price;
+                    }
+                    return BoundToDo.CartPrice = BoundToDo.CartQuantity * BoundToDo.Price;
+                }
+                if (BoundAppointment.Bogo)
+                {
+                    return BoundAppointment.CartPrice = BoundAppointment.CartWeight/2 * BoundAppointment.Price;
+                }
+                return BoundAppointment.CartPrice = BoundAppointment.CartWeight * BoundAppointment.Price;
+            }
+        }
 
         public int Amount
         {
             
             set
-            {   /*if(BoundAppointment == null)
+            {   if(BoundAppointment == null)
                 {
                     BoundToDo.Quantity = Quantity - value;
+                    BoundToDo.CartQuantity = value;
                 }
                 if (BoundToDo == null)
                 {
                     BoundAppointment.Weight = Weight - value;
-                }*/
+                    BoundAppointment.CartWeight = value;
+                }
                 return;
             }
         }

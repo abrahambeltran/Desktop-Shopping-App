@@ -25,7 +25,5 @@
             <TextBlock Grid.Column="0" Text="Amount"></TextBlock>
             <TextBox Grid.Column="1" Text="{Binding Path=Amount, Mode=TwoWay}"/>
         </Grid>
-        
-        
     </Grid>
 </ContentDialog>

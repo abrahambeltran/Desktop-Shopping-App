@@ -66,10 +66,6 @@ namespace ToDoApplication.UWP
         {
             this.Frame.Navigate(typeof(SecondaryPage));
         }
-        private void TotalSort(object sender, RoutedEventArgs e)
-        {
-            (DataContext as MainViewModel).Sort("totalSort");
-        }
         private void NameSort(object sender, RoutedEventArgs e)
         {
             (DataContext as MainViewModel).Sort("nameSort");

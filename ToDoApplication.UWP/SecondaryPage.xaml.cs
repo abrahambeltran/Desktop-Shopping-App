@@ -71,7 +71,7 @@ namespace ToDoApplication.UWP
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as CartViewModel).Save("");
+            (DataContext as CartViewModel).Refresh();
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
@@ -82,5 +82,14 @@ namespace ToDoApplication.UWP
         {
             this.Frame.Navigate(typeof(MainPage));
         }
+        private void TotalSort(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).Sort("totalSort");
+        }
+        private void NameSort(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).Sort("nameSort");
+        }
+        
     }
 }

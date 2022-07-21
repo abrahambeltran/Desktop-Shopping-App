@@ -111,12 +111,12 @@ namespace Library.TaskManagement.Services
         }
         public void DeleteFromCart(int id)
         {
-            var todoToDelete = cartList.FirstOrDefault(t => t.Id == id);
-            if (todoToDelete == null)
+            var todosToDelete = cartList.FirstOrDefault(t => t.Id == id);
+            if (todosToDelete == null)
             {
                 return;
             }
-            cartList.Remove(todoToDelete);
+            cartList.Remove(todosToDelete);
         }
 
         public void Load(string fileName)

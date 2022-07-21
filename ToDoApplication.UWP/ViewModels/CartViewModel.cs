@@ -125,7 +125,7 @@ namespace ToDoApplication.UWP.ViewModels
            
             ContentDialog diag = new ItemDialog(SelectedItem);
             
-            _itemService.Save(filename);
+            _itemService.Save(fileName);
         }
 
         public void Load(String g)
@@ -138,6 +138,25 @@ namespace ToDoApplication.UWP.ViewModels
         public void Refresh()
         {
             NotifyPropertyChanged("Cart");
+        }
+        public void Sort(String s)
+        {
+            if (s == null)
+            {
+                return;
+            }
+            if (s == "totalSort")
+            {
+
+            }
+            if (s == "unitSort")
+            {
+
+            }
+            if (s == "nameSort")
+            {
+
+            }
         }
     }
     

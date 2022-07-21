@@ -35,7 +35,6 @@
                     <Button.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem Text="Unit Price" Click="UnitSort"/>
-                            <MenuFlyoutItem Text="Total Price" Click="TotalSort"/>
                             <MenuFlyoutItem Text="Name" Click="NameSort"/>
                         </MenuFlyout>
                     </Button.Flyout>

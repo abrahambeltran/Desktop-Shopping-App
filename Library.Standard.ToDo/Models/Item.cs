@@ -9,6 +9,8 @@
         public int Price { get; set; }
         public bool Bogo { get; set; }
         public int TotalPrice { get; set; }
+        public int CartPrice { get; set; }
+        public bool DeletedCart { get; set; }
 
         public override string ToString()
         {
