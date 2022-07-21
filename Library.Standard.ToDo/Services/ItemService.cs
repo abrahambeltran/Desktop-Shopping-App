@@ -96,7 +96,7 @@ namespace Library.TaskManagement.Services
         {
             if (todo.Id <= 0)
             {
-                todo.Id = NextId;
+                todo.Id = NextCartId;
                 Cart.Add(todo);
             }
         }

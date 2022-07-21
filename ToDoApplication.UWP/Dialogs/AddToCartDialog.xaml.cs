@@ -43,7 +43,7 @@ namespace ToDoApplication.UWP.Dialogs
 
             //step 3: interact with the service using models;
 
-            ItemService.Current.AddOrUpdateCart(DataContext as Item);
+            ItemService.Current.AddOrUpdateCart(viewModel.BoundItem);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
