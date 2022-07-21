@@ -120,18 +120,16 @@ namespace ToDoApplication.UWP.ViewModels
 
         public void Save(String s)
         {
-            string filename = s;
-            
-           
+
             ContentDialog diag = new ItemDialog(SelectedItem);
-            
-            _itemService.Save(fileName);
+            fileName = s;
+            _itemService.SaveCart(fileName);
         }
 
         public void Load(String g)
         {
-            String fileName = g;
-            _itemService.Load(fileName);
+            fileName = g;
+            _itemService.LoadCart(fileName);
             NotifyPropertyChanged("Cart");
         }
 
@@ -141,17 +139,16 @@ namespace ToDoApplication.UWP.ViewModels
         }
         public void Sort(String s)
         {
+            IEnumerable<ItemViewModel> returnListish = null;
             if (s == null)
             {
                 return;
             }
             if (s == "totalSort")
             {
-
-            }
-            if (s == "unitSort")
-            {
-
+                returnListish = _itemService.Cart.Where(i => i.Name.ToUpper().Contains(Query.ToUpper())
+                            || i.Description.ToUpper().Contains(Query.ToUpper()))
+                        .Select(i => new ItemViewModel(i));
             }
             if (s == "nameSort")
             {

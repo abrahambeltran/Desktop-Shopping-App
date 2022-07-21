@@ -95,7 +95,7 @@ namespace Library.TaskManagement.Services
         public void AddOrUpdateCart(Item todos)
         {
                 Item cart = todos;
-                cart.Id = NextCartId;
+                cart.Id = todos.Id;
                 Cart.Add(cart);
                 
         }
@@ -134,7 +134,15 @@ namespace Library.TaskManagement.Services
             itemList = JsonConvert.DeserializeObject<List<Item>>
                 (todosJson, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All })
                 ?? new List<Item>();
+        }
+        public void LoadCart(string fileName)
+        {
+            fileName = $"{persistPath}\\{fileName}.json";
 
+            var todosJson = File.ReadAllText(fileName);
+            cartList = JsonConvert.DeserializeObject<List<Item>>
+                (todosJson, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All })
+                ?? new List<Item>();
         }
 
         public void Save(string fileName)
@@ -147,6 +155,13 @@ namespace Library.TaskManagement.Services
                 fileName = $"{persistPath}\\{fileName}.json";
             }
             var todosJson = JsonConvert.SerializeObject(itemList
+                , new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
+            File.WriteAllText(fileName, todosJson);
+        }
+        public void SaveCart(string fileName)
+        {
+            fileName = $"{persistPath}\\{fileName}.json";
+            var todosJson = JsonConvert.SerializeObject(cartList
                 , new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
             File.WriteAllText(fileName, todosJson);
         }

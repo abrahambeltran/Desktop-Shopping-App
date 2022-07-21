@@ -13,6 +13,8 @@ namespace ToDoApplication.UWP
     /// </summary>
     public sealed partial class SecondaryPage : Page
     {
+        private string fileName;
+
         public SecondaryPage()
         {
             this.InitializeComponent();
@@ -71,12 +73,12 @@ namespace ToDoApplication.UWP
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as CartViewModel).Refresh();
+            (DataContext as CartViewModel).Save(fileName);
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as CartViewModel).Load("");
+            (DataContext as CartViewModel).Load(fileName);
         }
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
@@ -84,11 +86,11 @@ namespace ToDoApplication.UWP
         }
         private void TotalSort(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainViewModel).Sort("totalSort");
+            (DataContext as MainViewModel).Refresh();     //Sort("totalSort");
         }
         private void NameSort(object sender, RoutedEventArgs e)
         {
-            (DataContext as MainViewModel).Sort("nameSort");
+            (DataContext as MainViewModel).Refresh();     //Sort("nameSort");
         }
         
     }
