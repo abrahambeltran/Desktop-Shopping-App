@@ -16,6 +16,7 @@ namespace ToDoApplication.UWP.ViewModels
     {
         public string Query { get; set; }
         public string fileName { get; set; }
+        public int Amount { get; set; }
         public ItemViewModel SelectedItem { get; set; }
         private ItemService _itemService;
         public bool IsSortByName { get; set; }
@@ -57,6 +58,8 @@ namespace ToDoApplication.UWP.ViewModels
             }
         }
 
+
+
         public CartViewModel()
         {
             _itemService = ItemService.Current;
@@ -71,17 +74,10 @@ namespace ToDoApplication.UWP.ViewModels
         public async Task Add(ItemType iType)
         {
             ContentDialog diag = null;
-            if (iType == ItemType.Task)
+            
+            if (iType == ItemType.Item)
             {
-                diag = new ToDoDialog();
-            }
-            else if (iType == ItemType.Appointment)
-            {
-                diag = new AppointmentDialog();
-            }
-            else if (iType == ItemType.Item)
-            {
-                diag = new AddToCartDialog();
+                diag = new AddToCartDialog(SelectedItem);
             }
             else
             {

@@ -28,7 +28,7 @@ namespace ToDoApplication.UWP.Dialogs
             this.InitializeComponent();
             this.DataContext = new ItemViewModel();
         }
-        public AddToCartDialog(Item selectedItem)
+        public AddToCartDialog(ItemViewModel selectedItem)
         {
             this.InitializeComponent();
             this.DataContext = selectedItem;
@@ -40,10 +40,10 @@ namespace ToDoApplication.UWP.Dialogs
             var viewModel = DataContext as ItemViewModel;
 
             //step 2: use a conversion constructor from view model -> todo
-
+            ItemViewModel cartItem = viewModel;
             //step 3: interact with the service using models;
 
-            ItemService.Current.AddOrUpdateCart(viewModel.BoundItem);
+            ItemService.Current.AddOrUpdateCart(cartItem.BoundItem);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

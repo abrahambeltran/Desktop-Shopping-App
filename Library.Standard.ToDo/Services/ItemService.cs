@@ -92,13 +92,12 @@ namespace Library.TaskManagement.Services
             }
 
         }
-        public void AddOrUpdateCart(Item todo)
+        public void AddOrUpdateCart(Item todos)
         {
-            if (todo.Id <= 0)
-            {
-                todo.Id = NextCartId;
-                Cart.Add(todo);
-            }
+                Item cart = todos;
+                cart.Id = NextCartId;
+                Cart.Add(cart);
+                
         }
 
         public void Delete(int id)

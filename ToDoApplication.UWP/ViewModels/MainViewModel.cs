@@ -59,6 +59,7 @@ namespace ToDoApplication.UWP.ViewModels
             get { return Items; }
         }
 
+
         public MainViewModel()
         {
             _itemService = ItemService.Current;

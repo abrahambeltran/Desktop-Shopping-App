@@ -100,6 +100,22 @@ namespace ToDoApplication.UWP.ViewModels
             }
         }
 
+        public int Amount
+        {
+            
+            set
+            {   /*if(BoundAppointment == null)
+                {
+                    BoundToDo.Quantity = Quantity - value;
+                }
+                if (BoundToDo == null)
+                {
+                    BoundAppointment.Weight = Weight - value;
+                }*/
+                return;
+            }
+        }
+
         public int Price
         {
             get

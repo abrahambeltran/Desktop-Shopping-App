@@ -93,6 +93,7 @@
                                 <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                 <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding Path=Bogo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                                 <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding Path=TotalPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
