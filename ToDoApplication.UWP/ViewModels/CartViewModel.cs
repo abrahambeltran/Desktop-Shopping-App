@@ -86,6 +86,7 @@ namespace ToDoApplication.UWP.ViewModels
 
             await diag.ShowAsync();
             NotifyPropertyChanged("Cart");
+            NotifyPropertyChanged("Items");
         }
 
         public void Remove()
@@ -126,9 +127,8 @@ namespace ToDoApplication.UWP.ViewModels
             _itemService.SaveCart(fileName);
         }
 
-        public void Load(String g)
+        public void Load(String fileName)
         {
-            fileName = g;
             _itemService.LoadCart(fileName);
             NotifyPropertyChanged("Cart");
         }

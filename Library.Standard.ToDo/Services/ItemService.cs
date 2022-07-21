@@ -135,16 +135,6 @@ namespace Library.TaskManagement.Services
                 (todosJson, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All })
                 ?? new List<Item>();
         }
-        public void LoadCart(string fileName)
-        {
-            fileName = $"{persistPath}\\{fileName}.json";
-
-            var todosJson = File.ReadAllText(fileName);
-            cartList = JsonConvert.DeserializeObject<List<Item>>
-                (todosJson, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All })
-                ?? new List<Item>();
-        }
-
         public void Save(string fileName)
         {
             if(string.IsNullOrEmpty(fileName))
@@ -158,9 +148,20 @@ namespace Library.TaskManagement.Services
                 , new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
             File.WriteAllText(fileName, todosJson);
         }
+        public void LoadCart(string fileName)
+        {
+            String s = fileName;
+            fileName = $"{persistPath}\\{s}.json";
+
+            var todosJson = File.ReadAllText(fileName);
+            cartList = JsonConvert.DeserializeObject<List<Item>>
+                (todosJson, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All })
+                ?? new List<Item>();
+        }
         public void SaveCart(string fileName)
         {
-            fileName = $"{persistPath}\\{fileName}.json";
+            String s = fileName;
+            fileName = $"{persistPath}\\{s}.json";
             var todosJson = JsonConvert.SerializeObject(cartList
                 , new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
             File.WriteAllText(fileName, todosJson);
