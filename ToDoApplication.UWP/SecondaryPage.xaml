@@ -47,12 +47,12 @@
                 <ColumnDefinition Width="281*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                
-                <ListBox Grid.Column="0" ItemsSource="{Binding Path=inventoryList,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Inventory" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ListBox Grid.Row="1"  ItemsSource="{Binding Path=inventoryList,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" HorizontalAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -86,7 +86,12 @@
                 </ListBox>
             </Grid>
             <Grid Grid.Column="1">
-                <ListBox ItemsSource="{Binding Path=Cart,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Cart" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ListBox Grid.Row="1" ItemsSource="{Binding Path=Cart,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" Grid.ColumnSpan="2">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -130,10 +135,10 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Content="Add Product to Cart" Grid.Column="0" HorizontalAlignment="Stretch" Click="Add_Task_Click"></Button>
+                <Button Content="Add Product to Cart" Grid.Column="0" HorizontalAlignment="Stretch"></Button>
             </Grid>
-            <Button Content="Edit Product in Cart" Grid.Column="1" HorizontalAlignment="Stretch" Click="Edit_Click"></Button>
-            <Button Content="Remove Product from Cart" Grid.Column="2" HorizontalAlignment="Stretch" Click="Remove_Click"></Button>
+            <Button Content="Edit Product in Cart" Grid.Column="1" HorizontalAlignment="Stretch"></Button>
+            <Button Content="Remove Product from Cart" Grid.Column="2" HorizontalAlignment="Stretch"></Button>
         </Grid>
     </Grid>
 </Page>

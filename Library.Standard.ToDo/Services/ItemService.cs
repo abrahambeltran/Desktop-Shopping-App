@@ -17,11 +17,19 @@ namespace Library.TaskManagement.Services
             = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}";
         private ListNavigator<Item> listNavigator;
         private List<Item> itemList;
+        private List<Item> cartList;
         public List<Item> Items
         {
             get
             {
                 return itemList;
+            }
+        }
+        public List<Item> Cart
+        {
+            get
+            {
+                return cartList;
             }
         }
 
@@ -56,8 +64,10 @@ namespace Library.TaskManagement.Services
         private ItemService()
         {
             itemList = new List<Item>();
+            cartList = new List<Item>();
 
             listNavigator = new ListNavigator<Item>(itemList);
+            listNavigator = new ListNavigator<Item>(cartList);
 
         }
 

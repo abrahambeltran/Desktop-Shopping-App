@@ -33,11 +33,11 @@ namespace ToDoApplication.UWP.ViewModels
 
                 if (string.IsNullOrEmpty(Query))
                 {
-                    returnList = _itemService.Items.Select(i => new ItemViewModel(i));
+                    returnList = _itemService.Cart.Select(i => new ItemViewModel(i));
                 }
                 else
                 {
-                    returnList = _itemService.Items.Where(i => i.Name.ToUpper().Contains(Query.ToUpper())
+                    returnList = _itemService.Cart.Where(i => i.Name.ToUpper().Contains(Query.ToUpper())
                             || i.Description.ToUpper().Contains(Query.ToUpper()))
                         .Select(i => new ItemViewModel(i));
                 }
@@ -89,7 +89,7 @@ namespace ToDoApplication.UWP.ViewModels
             }
 
             await diag.ShowAsync();
-            NotifyPropertyChanged("Items");
+            NotifyPropertyChanged("Cart");
         }
 
         public void Remove()
@@ -99,7 +99,7 @@ namespace ToDoApplication.UWP.ViewModels
             {
                 _itemService.Delete(SelectedItem.Id);
             }
-            NotifyPropertyChanged("Items");
+            NotifyPropertyChanged("Cart");
         }
 
         public async void Update()
@@ -118,7 +118,7 @@ namespace ToDoApplication.UWP.ViewModels
 
 
                 await diag.ShowAsync();
-                NotifyPropertyChanged("Items");
+                NotifyPropertyChanged("Cart");
             }
 
         }
@@ -137,12 +137,12 @@ namespace ToDoApplication.UWP.ViewModels
         {
             String fileName = g;
             _itemService.Load(fileName);
-            NotifyPropertyChanged("Items");
+            NotifyPropertyChanged("Cart");
         }
 
         public void Refresh()
         {
-            NotifyPropertyChanged("Items");
+            NotifyPropertyChanged("Cart");
         }
     }
     
