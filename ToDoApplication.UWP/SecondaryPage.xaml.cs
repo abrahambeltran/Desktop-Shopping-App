@@ -69,6 +69,12 @@ namespace ToDoApplication.UWP
                 vm.Update();
             }
         }
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as CartViewModel;
+
+            //(DataContext as CartViewModel).DeleteFile(vm.fileName);
+        }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {

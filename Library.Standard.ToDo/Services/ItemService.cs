@@ -116,7 +116,6 @@ namespace Library.TaskManagement.Services
             {
                 return;
             }
-            itemList.AddorUpdate(todosToDelete);
             cartList.Remove(todosToDelete);
         }
 
