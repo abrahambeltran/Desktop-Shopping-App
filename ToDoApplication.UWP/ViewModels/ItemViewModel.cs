@@ -12,23 +12,7 @@ namespace ToDoApplication.UWP.ViewModels
 {
     public class ItemViewModel:INotifyPropertyChanged
     {
-        public string fileName
-        {
-            get
-            {
-                return BoundItem?.fileName ?? string.Empty;
-            }
-
-            set
-            {
-                if (BoundItem == null)
-                {
-                    return;
-                }
-
-                BoundItem.fileName = value;
-            }
-        }
+        
         public string Name { 
             get
             {
@@ -303,6 +287,7 @@ namespace ToDoApplication.UWP.ViewModels
             boundAppointment = null;
             boundToDo = new ToDo();
         }
+ 
 
         public ItemViewModel(Item i)
         {

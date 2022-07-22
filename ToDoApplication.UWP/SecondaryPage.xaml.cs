@@ -13,7 +13,6 @@ namespace ToDoApplication.UWP
     /// </summary>
     public sealed partial class SecondaryPage : Page
     {
-        private string fileName;
 
         public SecondaryPage()
         {
@@ -73,12 +72,15 @@ namespace ToDoApplication.UWP
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as CartViewModel).Save(fileName);
+            var vm = DataContext as CartViewModel;
+
+            (DataContext as CartViewModel).Save(vm.fileName);
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as CartViewModel).Load(fileName);
+            var vm = DataContext as CartViewModel;
+            (DataContext as CartViewModel).Load(vm.fileName);
         }
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {

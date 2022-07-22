@@ -86,7 +86,7 @@ namespace ToDoApplication.UWP.ViewModels
 
             await diag.ShowAsync();
             NotifyPropertyChanged("Cart");
-            NotifyPropertyChanged("Items");
+            NotifyPropertyChanged("inventoryList");
         }
 
         public void Remove()
