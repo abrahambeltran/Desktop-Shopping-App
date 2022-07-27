@@ -1,4 +1,5 @@
-﻿using Library.TaskManagement.Models;
+﻿using Library.Standard.ToDo.Utility;
+using Library.TaskManagement.Models;
 using Library.TaskManagement.Utility;
 using Newtonsoft.Json;
 using System;
@@ -102,6 +103,7 @@ namespace Library.TaskManagement.Services
 
         public void Delete(int id)
         {
+            var response = new WebRequestHandler().Get($"http://localhost:5017/ToDo/Delete/{id}");
             var todoToDelete = itemList.FirstOrDefault(t => t.Id == id);
             if (todoToDelete == null)
             {
@@ -111,6 +113,7 @@ namespace Library.TaskManagement.Services
         }
         public void DeleteFromCart(int id)
         {
+            var response = new WebRequestHandler().Get($"http://localhost:5017/ToDo/Delete/{id}");
             var todosToDelete = cartList.FirstOrDefault(t => t.Id == id);
             if (todosToDelete == null)
             {
@@ -139,7 +142,7 @@ namespace Library.TaskManagement.Services
         {
             if(string.IsNullOrEmpty(fileName))
             {
-                fileName = $"{persistPath}\\InventoryData.json";
+                fileName = $"{persistPath}\\SaveData.json";
             } else
             {
                 fileName = $"{persistPath}\\{fileName}.json";
