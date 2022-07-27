@@ -9,5 +9,15 @@ namespace TaskApplication.API.EC
         {
             return FakeDatabase.ToDos;
         }
+
+        internal Item AddOrUpdate(Item item)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal bool Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
